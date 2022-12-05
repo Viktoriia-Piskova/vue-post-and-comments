@@ -1,7 +1,10 @@
 <template>
-  <div class="hello">
-    <h1>Comments list component</h1>
-    <CommentCard />
+  <div class="card">
+    <CommentCard
+      v-for="comment in comments"
+      :key="comment.id"
+      :comment="comment"
+    />
   </div>
 </template>
 
@@ -10,11 +13,13 @@ import CommentCard from "@/components/CommentCard.vue";
 
 export default {
   name: "CommentsList",
-  components: CommentCard,
+  components: { CommentCard },
+  props: {
+    comments: Array,
+  },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;

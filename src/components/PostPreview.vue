@@ -1,21 +1,29 @@
 <template>
-  <div class="card m-3">
-    <h5 class="card-header text-success">{{ post.title }}</h5>
-    <p class="card-body text-start">
-      {{ preview }} <span class="text-end text-secondary">Read more</span>
-    </p>
-    <div class="card-footer d-flex justify-content-between">
-      <div>{{ post.date }}</div>
-      <div>Comments: {{ commentsCount }}</div>
+  <router-link
+    class="no-text-decor"
+    :to="{ name: 'PostDetails', params: { id: post.id } }"
+  >
+    <div class="card m-3">
+      <h5 class="card-header text-success">{{ post.title }}</h5>
+      <p class="card-body text-start">
+        {{ preview }} <span class="text-end text-secondary">Read more</span>
+      </p>
+      <div class="card-footer d-flex justify-content-between">
+        <div>{{ post.date }}</div>
+        <div>Comments: {{ commentsCount }}</div>
+      </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
 export default {
   name: "PostPreview",
   props: {
-    post: Object,
+    post: {
+      type: Object,
+      required: true,
+    },
   },
   computed: {
     preview() {
@@ -31,6 +39,11 @@ export default {
 </script>
 
 <style scoped>
+.no-text-decor {
+  text-decoration: none;
+  color: initial;
+}
+
 .card:hover {
   background-color: #ffffff;
   border: 2px solid rgb(27, 26, 26);

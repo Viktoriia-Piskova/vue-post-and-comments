@@ -1,15 +1,20 @@
 <template>
-  <div class="hello">
-    <h1>Post layout component</h1>
-    <CommentList />
+  <div class="card">
+    <h1>{{ post.title }}</h1>
+    <h6>{{ post.date }}</h6>
+    <p>{{ post.description }}</p>
   </div>
 </template>
 
 <script>
-import CommentsList from "@/components/CommentsList.vue";
 export default {
-  components: CommentsList,
   name: "PostLayout",
+  props: {
+    post: {
+      type: Object,
+      required: true,
+    },
+  },
 };
 </script>
 

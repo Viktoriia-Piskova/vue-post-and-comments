@@ -1,12 +1,11 @@
 <template>
   <div class="home">
-    <PostLayout />
-    <CommentsList />
+    <PostLayout :post="post" />
+    <CommentsList :comments="comments" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import PostLayout from "@/components/PostLayout.vue";
 import CommentsList from "@/components/CommentsList.vue";
 
@@ -15,6 +14,20 @@ export default {
   components: {
     PostLayout,
     CommentsList,
+  },
+  props: ["id"],
+  computed: {
+    post() {
+      const currPost = this.$store.state.currentPosts.find(
+        (post) => post.id === +this.$route.params.id
+      );
+      console.log(this.$route.params.id);
+      console.log(currPost);
+      return currPost;
+    },
+    comments() {
+      return this.post.comments;
+    },
   },
 };
 </script>

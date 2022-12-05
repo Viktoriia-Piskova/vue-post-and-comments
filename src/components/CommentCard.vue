@@ -1,16 +1,25 @@
 <template>
-  <div class="hello">
-    <h1>Comment card component</h1>
+  <div class="card">
+    <div class="d-flex justify-content-between">
+      <p>{{ comment.author }}</p>
+      <p>{{ comment.date }}</p>
+    </div>
+    <p>{{ comment.content }}</p>
   </div>
 </template>
 
 <script>
 export default {
   name: "CommentCard",
+  props: {
+    comment: {
+      type: Object,
+      required: true,
+    },
+  },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 ul {
   list-style-type: none;
