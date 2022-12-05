@@ -1,17 +1,16 @@
 <template>
   <div class="hello">
-    <h1>Post full text component</h1>
-    <div class="container">
-      <button type="button" class="btn btn-success">Success</button>
-      <button type="button" class="btn btn-info">Info</button>
-      <button type="button" class="btn btn-warning">Warning</button>
-    </div>
+    <h1>Comments list component</h1>
+    <CommentCard />
   </div>
 </template>
 
 <script>
+import CommentCard from "@/components/CommentCard.vue";
+
 export default {
-  name: "PostFullText",
+  name: "CommentsList",
+  components: CommentCard,
 };
 </script>
 

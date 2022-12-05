@@ -1,7 +1,8 @@
 import { createStore } from "vuex";
+import { currentPosts } from "@/currentPosts.js";
 
 export default createStore({
-  state: {},
+  state: { currentPosts },
   getters: {},
   mutations: {},
   actions: {},

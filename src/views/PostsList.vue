@@ -1,18 +1,23 @@
 <template>
   <div class="home">
-    <h1>Post previews list</h1>
-    <PostPreview />
+    <h1>Posts preview list</h1>
+    <PostPreview v-for="post in posts" :key="post.id" :post="post" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import PostPreview from "@/components/PostPreview.vue";
 
 export default {
   name: "PostDetails",
   components: {
     PostPreview,
+  },
+  computed: {
+    posts() {
+      debugger;
+      return this.$store.state.currentPosts;
+    },
   },
 };
 </script>

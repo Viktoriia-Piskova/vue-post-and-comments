@@ -1,17 +1,15 @@
 <template>
   <div class="hello">
-    <h3>This is post preview component</h3>
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.description }}</p>
+    <h1>Post layout component</h1>
+    <CommentList />
   </div>
 </template>
 
 <script>
+import CommentsList from "@/components/CommentsList.vue";
 export default {
-  name: "PostPreview",
-  props: {
-    post: Object,
-  },
+  components: CommentsList,
+  name: "PostLayout",
 };
 </script>
 

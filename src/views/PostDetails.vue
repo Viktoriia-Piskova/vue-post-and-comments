@@ -1,20 +1,20 @@
 <template>
   <div class="home">
-    <CommentCard />
-    <PostFullText />
+    <PostLayout />
+    <CommentsList />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import PostFullText from "@/components/PostFullText.vue";
-import CommentCard from "@/components/CommentCard.vue";
+import PostLayout from "@/components/PostLayout.vue";
+import CommentsList from "@/components/CommentsList.vue";
 
 export default {
   name: "PostDetails",
   components: {
-    PostFullText,
-    CommentCard,
+    PostLayout,
+    CommentsList,
   },
 };
 </script>
