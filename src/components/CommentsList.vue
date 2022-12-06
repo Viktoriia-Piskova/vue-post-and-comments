@@ -5,6 +5,9 @@
       :key="comment.id"
       :comment="comment"
     />
+    <form>
+      <input type="text" /><button class="btn" type="submit"></button>
+    </form>
   </div>
 </template>
 
