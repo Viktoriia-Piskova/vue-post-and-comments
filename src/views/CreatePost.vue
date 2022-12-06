@@ -2,14 +2,27 @@
   <div class="about">
     <h1>This is the create post page</h1>
     <form @submit.prevent="createPost">
-      <input type="text" v-model="postTemplate.title" />
-      <textarea
-        name=""
-        id=""
-        cols="30"
-        rows="10"
-        v-model="postTemplate.description"
-      ></textarea>
+      <div class="mb-3 mt-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          placeholder="Title"
+          v-model="postTemplate.title"
+        />
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="description">Description</label>
+        <textarea
+          class="form-control"
+          rows="5"
+          id="description"
+          name="description"
+          placeholder="Description"
+          v-model="postTemplate.description"
+        ></textarea>
+      </div>
       <div class="container">
         <button type="submit" class="btn btn-success">Create</button>
         <button type="button" class="btn btn-danger">Cancel</button>
@@ -31,19 +44,17 @@ export default {
   },
   methods: {
     createPost() {
-      if (this.postTemplate.title.length > 5) {
-        const newPost = {
-          ...this.postTemplate,
-          date: new Date(),
-          id: Math.random().toString(16).slice(2),
-        };
-        this.$store.state.currentPosts.push(newPost);
-        this.$router.push({
-          name: "PostDetails",
-          params: { id: newPost.id },
-        });
-        console.log(this.$store.state.currentPosts);
-      }
+      const newPost = {
+        ...this.postTemplate,
+        date: new Date(),
+        id: Math.random().toString(16).slice(2),
+        comments: [],
+      };
+      this.$store.dispatch("createPost", newPost);
+      this.$router.push({
+        name: "PostDetails",
+        params: { id: newPost.id },
+      });
     },
   },
 };
