@@ -38,6 +38,12 @@ export default createStore({
         }
       });
     },
+    ADD_COMMENT(state, comment) {
+      const postToAddComment = state.currentPosts.find(
+        (post) => post.id === comment.postId
+      );
+      postToAddComment.comments.push(comment.comment);
+    },
   },
   actions: {
     createPost({ commit }, post) {
@@ -48,6 +54,9 @@ export default createStore({
     },
     showMostCommented({ commit }) {
       commit("MOST_COMMENTED_FIRST");
+    },
+    addComment({ commit }, comment) {
+      commit("ADD_COMMENT", comment);
     },
   },
   modules: {},

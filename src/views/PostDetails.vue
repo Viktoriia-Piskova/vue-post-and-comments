@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <PostLayout :post="post" />
-    <CommentsList v-if="comments" :comments="comments" />
+    <CommentsList v-if="comments" :comments="comments" :id="id" />
   </div>
 </template>
 

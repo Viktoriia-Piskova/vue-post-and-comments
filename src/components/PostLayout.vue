@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card m-2 p-2">
     <h1>{{ post.title }}</h1>
     <h6>{{ post.date }}</h6>
     <p>{{ post.description }}</p>
