@@ -1,7 +1,13 @@
 <template>
   <div class="about">
-    <h1>This is the create post page</h1>
-    <form @submit.prevent="createPost" class="was-validated">
+    <h1>Create your own post</h1>
+    <h4>Upload your post as .json file</h4>
+    <UploadPostAsJson @isLoadedAsJson="importFromJson" />
+    <h4>or fill the form manually</h4>
+    <form
+      @submit.prevent="createPost"
+      class="was-validated p-5 my-5 border bg-light"
+    >
       <div class="mb-3 mt-3">
         <label for="title" class="form-label">Title</label>
         <input
@@ -46,6 +52,7 @@
 </template>
 
 <script>
+import UploadPostAsJson from "@/components/UploadPostAsJson.vue";
 export default {
   name: "CreatePost",
   data() {
@@ -60,7 +67,15 @@ export default {
       },
     };
   },
+  components: {
+    UploadPostAsJson,
+  },
   methods: {
+    importFromJson(postPreview) {
+      this.postTemplate.title = postPreview.title;
+      this.postTemplate.description = postPreview.description;
+      this.createPost();
+    },
     createPost() {
       if (this.postTemplate.title < 1 || this.postTemplate.description < 50) {
         return (this.error.value = true);

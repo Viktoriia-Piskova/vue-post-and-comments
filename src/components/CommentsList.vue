@@ -90,6 +90,8 @@ export default {
           postId: this.id,
           comment: newComment,
         });
+        this.commentTemplate.author = "";
+        this.commentTemplate.content = "";
       }
     },
   },
