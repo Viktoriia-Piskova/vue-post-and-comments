@@ -2,10 +2,10 @@
   <div class="home">
     <a
       id="downloadButton"
-      class="btn btn-info"
+      class="btn btn-info text-light"
       @click="downloadJson(posts, 'allPosts')"
     >
-      Download this as JSON
+      Download as JSON
     </a>
     <button @click="showLatestFirst" class="btn btn-success m-2">
       New posts first

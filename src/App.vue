@@ -1,7 +1,7 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/create">Create</router-link>
+    <router-link to="/">All posts</router-link> |
+    <router-link to="/create">Create new</router-link>
   </nav>
   <router-view class="container" />
 </template>
