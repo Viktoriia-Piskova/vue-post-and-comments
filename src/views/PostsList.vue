@@ -1,5 +1,12 @@
 <template>
   <div class="home">
+    <a
+      id="downloadButton"
+      class="btn btn-info"
+      @click="downloadJson(posts, 'allPosts')"
+    >
+      Download this as JSON
+    </a>
     <button @click="showLatestFirst" class="btn btn-success m-2">
       New posts first
     </button>
@@ -25,6 +32,14 @@ export default {
     },
     showMostCommented() {
       this.$store.dispatch("showMostCommented");
+    },
+    downloadJson(exportObject, exportFileName) {
+      const downloadButton = document.getElementById("downloadButton");
+      const dataStr =
+        "data:text/json;charset=utf-8," +
+        encodeURIComponent(JSON.stringify(exportObject));
+      downloadButton.setAttribute("href", dataStr);
+      downloadButton.setAttribute("download", exportFileName + ".json");
     },
   },
 };
