@@ -7,15 +7,17 @@
     >
       Download as JSON
     </a>
-    <button @click="showLatestFirst" class="btn btn-success m-2">
-      New posts first
-    </button>
-    <button @click="showRecentlyCommentedFirst" class="btn btn-success m-2">
-      Latest comments first
-    </button>
-    <button @click="showMostCommented" class="btn btn-success m-2">
-      Most commented first
-    </button>
+    <div class="d-flex justify-content-around">
+      <button @click="showLatestFirst" class="btn btn-success m-2">
+        New posts first
+      </button>
+      <button @click="showRecentlyCommentedFirst" class="btn btn-success m-2">
+        Latest comments first
+      </button>
+      <button @click="showMostCommented" class="btn btn-success m-2">
+        Most commented first
+      </button>
+    </div>
     <PostPreview v-for="post in posts" :key="post.id" :post="post" />
   </div>
 </template>
