@@ -19,6 +19,7 @@
       </button>
     </div>
     <PostPreview v-for="post in posts" :key="post.id" :post="post" />
+    <div></div>
   </div>
 </template>
 
