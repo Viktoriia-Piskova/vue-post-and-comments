@@ -10,6 +10,9 @@
     <button @click="showLatestFirst" class="btn btn-success m-2">
       New posts first
     </button>
+    <button @click="showRecentlyCommentedFirst" class="btn btn-success m-2">
+      Latest comments first
+    </button>
     <button @click="showMostCommented" class="btn btn-success m-2">
       Most commented first
     </button>
@@ -29,6 +32,9 @@ export default {
   methods: {
     showLatestFirst() {
       this.$store.dispatch("showLatestFirst");
+    },
+    showRecentlyCommentedFirst() {
+      this.$store.dispatch("showRecentlyCommentedFirst");
     },
     showMostCommented() {
       this.$store.dispatch("showMostCommented");

@@ -24,6 +24,25 @@ export default createStore({
         }
       });
     },
+    LAST_COMMENTED_FIRST(state) {
+      //Math.max(...array.map(o => o.y))
+      state.currentPosts.sort((a, b) => {
+        const commentsA = Math.max(
+          ...a.comments.map((comm) => Date.parse(comm.date))
+        );
+        const commentsB = Math.max(
+          ...b.comments.map((comm) => Date.parse(comm.date))
+        );
+        if (commentsA < commentsB) {
+          return 1;
+        }
+        if (commentsA > commentsB) {
+          return -1;
+        } else {
+          return 0;
+        }
+      });
+    },
     MOST_COMMENTED_FIRST(state) {
       state.currentPosts.sort((a, b) => {
         const commentsA = a.comments.length;
@@ -57,6 +76,9 @@ export default createStore({
     },
     addComment({ commit }, comment) {
       commit("ADD_COMMENT", comment);
+    },
+    showRecentlyCommentedFirst({ commit }) {
+      commit("LAST_COMMENTED_FIRST");
     },
   },
   modules: {},
