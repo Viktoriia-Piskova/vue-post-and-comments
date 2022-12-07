@@ -1,10 +1,10 @@
 <template>
   <div class="container p-5 my-5 border bg-light">
     <div class="mb-3">
-      <label for="formFile" class="form-label">Select .json file</label>
+      <label for="formFile" class="form-label">1. Select .json file</label>
       <input type="file" id="selectFiles" class="form-control" /><br />
       <button id="import" @click="readJson" class="btn btn-success">
-        Preview
+        2. Preview
       </button>
     </div>
     <div>
@@ -15,7 +15,7 @@
       @click="$emit('isLoadedAsJson', postPreview)"
       class="btn btn-success"
     >
-      Send
+      3. Send
     </button>
   </div>
 </template>
