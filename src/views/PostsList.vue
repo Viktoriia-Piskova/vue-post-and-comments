@@ -1,7 +1,11 @@
 <template>
   <div class="home">
-    <button @click="showLatestFirst">New posts first</button>
-    <button @click="showMostCommented">Most commented first</button>
+    <button @click="showLatestFirst" class="btn btn-success m-2">
+      New posts first
+    </button>
+    <button @click="showMostCommented" class="btn btn-success m-2">
+      Most commented first
+    </button>
     <PostPreview v-for="post in posts" :key="post.id" :post="post" />
   </div>
 </template>

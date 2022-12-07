@@ -30,7 +30,7 @@
           name="content"
         />
       </div>
-      <button type="submit">Send</button>
+      <button class="btn btn-primary" type="submit">Send</button>
     </form>
   </div>
 </template>
@@ -57,14 +57,19 @@ export default {
     addComment() {
       const newComment = {
         ...this.commentTemplate,
-        date: new Date(),
+        date: new Date().toLocaleDateString("en-GB", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+          hour: "numeric",
+          minute: "2-digit",
+        }),
         id: Math.random().toString(16).slice(2),
       };
       this.$store.dispatch("addComment", {
         postId: this.id,
         comment: newComment,
       });
-      console.log(newComment);
     },
   },
 };

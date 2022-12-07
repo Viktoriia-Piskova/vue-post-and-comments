@@ -3,14 +3,14 @@
       {
         "id": "a5689a69efba5",
         "title": "Cat Adoption Day",
-        "description": "Find your new feline friend at this event. Find your new feline friend at this event. Find your new feline friend at this event. Find your new feline friend at this event. Find your new feline friend at this event.",
-        "date": "January 28, 2022",
+        "description": "The cat (Felis catus) is a domestic species of small carnivorous mammal.[1][2] It is the only domesticated species in the family Felidae and is commonly referred to as the domestic cat or house cat to distinguish it from the wild members of the family.[4] Cats are commonly kept as house pets but can also be farm cats or feral cats; the feral cat ranges freely and avoids human contact.[5] Domestic cats are valued by humans for companionship and their ability to kill rodents. About 60 cat breeds are recognized by various cat registries",
+        "date": "January 28, 2012, 18:30",
         "comments": [
             { 
               "id": "c1123",
               "author": "John Doe",
               "content": "Best, like it!",
-              "date": "January 28, 2021"
+              "date": "January 28, 2011"
             },
             { 
               "id": "c1457",
@@ -48,7 +48,7 @@
         "id": "a5689a69efba6",
         "title": "Community Gardening",
         "description": "Join us as we tend to the community edible plants. Join us as we tend to the community edible plants. Join us as we tend to the community edible plants. Join us as we tend to the community edible plants. Join us as we tend to the community edible plants. ",
-        "date": "June 18, 2012",
+        "date": "June 18, 2012, 08:00",
         "comments": [
             { 
               "id": "c2123",
@@ -80,7 +80,7 @@
         "id": "a5689a69efba7",
         "title": "Beach Cleanup",
         "description": "Help pick up trash along the shore. Help pick up trash along the shore. Help pick up trash along the shore. Help pick up trash along the shore. Help pick up trash along the shore.",
-        "date": "May 16, 2013",
+        "date": "May 16, 2013, 22:15",
         "comments": [
             { 
               "id": "c3123",
@@ -107,7 +107,7 @@
         "id": "a5689a69efba8",
         "title": "No comments",
         "description": "Help pick up trash along the shore. Help pick up trash along the shore. Help pick up trash along the shore. Help pick up trash along the shore. Help pick up trash along the shore.",
-        "date": "May 16, 2019",
+        "date": "May 16, 2019, 12:20:45",
         "comments": []
       }
     ]

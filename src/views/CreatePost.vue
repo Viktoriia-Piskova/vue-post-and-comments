@@ -24,8 +24,8 @@
         ></textarea>
       </div>
       <div class="container">
-        <button type="submit" class="btn btn-success">Create</button>
-        <button type="button" class="btn btn-danger">Cancel</button>
+        <button type="submit" class="btn btn-success m-2">Create</button>
+        <button type="button" class="btn btn-danger m-2">Cancel</button>
       </div>
     </form>
   </div>
@@ -46,7 +46,13 @@ export default {
     createPost() {
       const newPost = {
         ...this.postTemplate,
-        date: new Date(),
+        date: new Date().toLocaleDateString("en-GB", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+          hour: "numeric",
+          minute: "2-digit",
+        }),
         id: Math.random().toString(16).slice(2),
         comments: [],
       };

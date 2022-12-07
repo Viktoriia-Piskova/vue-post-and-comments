@@ -9,7 +9,7 @@
         {{ preview }} <span class="text-end text-secondary">Read more</span>
       </p>
       <div class="card-footer d-flex justify-content-between">
-        <div>{{ post.date }}</div>
+        <div>{{ formatedDate }}</div>
         <div>Comments: {{ commentsCount }}</div>
       </div>
     </div>
@@ -34,6 +34,15 @@ export default {
     commentsCount() {
       return this.post.comments.length;
     },
+    formatedDate() {
+      return new Date(this.post.date).toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+      });
+    },
   },
 };
 </script>
@@ -46,7 +55,7 @@ export default {
 
 .card:hover {
   background-color: #ffffff;
-  border: 2px solid rgb(27, 26, 26);
+  border: 2px solid #42b983;
   cursor: pointer;
 }
 ul {

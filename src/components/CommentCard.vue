@@ -1,6 +1,8 @@
 <template>
   <div class="card m-2 p-2">
-    <div class="d-flex justify-content-between">
+    <div
+      class="d-flex justify-content-between align-content-center text-secondary small"
+    >
       <p>{{ comment.author }}</p>
       <p>{{ comment.date }}</p>
     </div>
