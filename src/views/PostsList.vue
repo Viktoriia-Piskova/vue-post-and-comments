@@ -18,29 +18,59 @@
         Most commented first
       </button>
     </div>
-    <PostPreview v-for="post in posts" :key="post.id" :post="post" />
-    <div></div>
+    <PostCard v-for="post in postsToDisplay" :key="post.id" :post="post" />
+    <PostsPagination :pageCount="pageCount" @changePage="displayNewPage" />
   </div>
 </template>
 
 <script>
-import PostPreview from "@/components/PostPreview.vue";
+import PostCard from "@/components/PostCard.vue";
+import PostsPagination from "@/components/PostsPagination.vue";
 import { mapState } from "vuex";
+
 export default {
   name: "PostDetails",
-  components: {
-    PostPreview,
+  data() {
+    return { postsToDisplay: null, currentPage: 1 };
   },
-  computed: mapState({ posts: "currentPosts" }),
+  created() {
+    this.postsToDisplay = this.posts.slice(0, 3);
+  },
+  components: {
+    PostCard,
+    PostsPagination,
+  },
+  computed: {
+    ...mapState({ posts: "currentPosts" }),
+    pageCount() {
+      return Math.ceil(this.posts.length / 3);
+    },
+    postsToDisplayComp() {
+      return this.posts.slice(0, 3);
+    },
+  },
   methods: {
+    displayNewPage(pageNum) {
+      const startPost = (pageNum - 1) * 3;
+      const lastPost = pageNum * 3;
+      this.postsToDisplay = this.posts.slice(startPost, lastPost);
+      this.currentPage = pageNum;
+      console.log(this.postsToDisplay);
+    },
     showLatestFirst() {
       this.$store.dispatch("showLatestFirst");
+      this.postsToDisplay = this.posts;
+      this.displayNewPage(this.currentPage);
     },
     showRecentlyCommentedFirst() {
       this.$store.dispatch("showRecentlyCommentedFirst");
+      this.postsToDisplay = this.posts;
+      this.displayNewPage(this.currentPage);
     },
     showMostCommented() {
       this.$store.dispatch("showMostCommented");
+      this.postsToDisplay = this.posts;
+      this.displayNewPage(this.currentPage);
     },
     downloadJson(exportObject, exportFileName) {
       const downloadButton = document.getElementById("downloadButton");

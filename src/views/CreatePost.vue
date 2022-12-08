@@ -2,14 +2,14 @@
   <div class="about">
     <h1>Create your own post</h1>
     <h4>Upload your post as file</h4>
-    <UploadPostAsJson @isLoadedAsJson="createPost" />
+    <CreatePostAsJson @isLoadedAsJson="createPost" />
     <h4>or fill the form manually</h4>
     <CreatePostForm @postIsValidated="createPost" />
   </div>
 </template>
 
 <script>
-import UploadPostAsJson from "@/components/UploadPostAsJson.vue";
+import CreatePostAsJson from "@/components/CreatePostAsJson.vue";
 import CreatePostForm from "@/components/CreatePostForm.vue";
 export default {
   name: "CreatePost",
@@ -26,7 +26,7 @@ export default {
     };
   },
   components: {
-    UploadPostAsJson,
+    CreatePostAsJson,
     CreatePostForm,
   },
   methods: {
