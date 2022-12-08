@@ -3,7 +3,7 @@
     class="no-text-decor"
     :to="{ name: 'PostDetails', params: { id: post.id } }"
   >
-    <div class="card m-3">
+    <div class="card my-3">
       <h5 class="card-header text-success">{{ post.title }}</h5>
       <p class="card-body text-start">
         {{ preview }} <span class="text-end text-secondary">Read more</span>
