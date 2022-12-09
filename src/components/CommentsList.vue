@@ -1,12 +1,14 @@
 <template>
-  <div class="card">
+  <div class="container bg-light py-3">
+    <h6 class="fst-italic">Comments:</h6>
     <CommentCard
       v-for="comment in comments"
       :key="comment.id"
       :comment="comment"
+      class="card p-2"
     />
     <form @submit.prevent="addComment" class="bg-light p-2 was-validated">
-      <div class="mb-3 mt-3">
+      <div>
         <label for="author" class="form-label text-light">Your name:</label>
         <input
           type="text"
@@ -20,7 +22,7 @@
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div>
-      <div class="mb-3 mt-3">
+      <div>
         <label for="content" class="form-label text-light"
           >Add a comment:</label
         >
@@ -39,7 +41,7 @@
       <div v-if="error.value == true" class="text-light bg-danger m-2">
         {{ error.message }}
       </div>
-      <button class="btn btn-primary" type="submit">Send</button>
+      <button class="btn btn-primary my-3" type="submit">Send</button>
     </form>
   </div>
 </template>
@@ -98,19 +100,4 @@ export default {
 };
 </script>
 
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+<style scoped></style>

@@ -1,21 +1,30 @@
 <template>
   <div class="container p-5 my-5 border bg-light">
     <div class="mb-3">
-      <label for="formFile" class="form-label">1. Select .json file</label>
+      <label for="formFile" class="form-label">Select .json file</label>
       <input type="file" id="selectFiles" class="form-control" /><br />
       <button id="import" @click="readJson" class="btn btn-success">
-        2. Preview
+        Preview
       </button>
     </div>
-    <div>
-      <h5>{{ postPreview.title }}</h5>
-      <p>{{ postPreview.description }}</p>
+    <div v-if="!postPreview.validated">
+      <p>"title" property is required</p>
+      <p>"description" property is required. Min length is 50 characters</p>
+    </div>
+    <div v-if="postPreview.validated">
+      <p>
+        {{ postPreview.title }}
+      </p>
+      <p>
+        {{ postPreview.description }}
+      </p>
     </div>
     <button
       @click="$emit('isLoadedAsJson', postPreview)"
-      class="btn btn-success"
+      class="btn btn-success disabled"
+      :disabled="!postPreview.validated"
     >
-      3. Send
+      Send
     </button>
   </div>
 </template>
@@ -25,8 +34,9 @@ export default {
   data() {
     return {
       postPreview: {
-        title: "'title' is required",
-        description: "'description' is required",
+        title: "",
+        description: "",
+        validated: true,
       },
     };
   },
@@ -37,13 +47,19 @@ export default {
       if (files.length <= 0) {
         return false;
       }
+
       const fr = new FileReader();
       fr.onload = (e) => {
         const result = JSON.parse(e.target.result);
-        this.postPreview.title =
-          result.title || "please add 'title' in your document";
-        this.postPreview.description =
-          result.description || "please add 'description' in your document";
+        if (result.title && result.description) {
+          if (result.title.length >= 1 && result.description.length >= 50) {
+            this.postPreview.title = result.title;
+            this.postPreview.description = result.description;
+            this.postPreview.validated = true;
+          }
+        } else {
+          alert("Unable to read this file");
+        }
       };
       fr.readAsText(files.item(0));
     },

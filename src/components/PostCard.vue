@@ -4,7 +4,7 @@
     :to="{ name: 'PostDetails', params: { id: post.id } }"
   >
     <div class="card my-3">
-      <h5 class="card-header text-success">{{ post.title }}</h5>
+      <h5 class="card-header text-primary">{{ post.title }}</h5>
       <p class="card-body text-start">
         {{ preview }} <span class="text-end text-secondary">Read more</span>
       </p>
@@ -55,18 +55,7 @@ export default {
 
 .card:hover {
   background-color: #ffffff;
-  border: 2px solid #42b983;
+  border: 2px solid #0d6efd;
   cursor: pointer;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
 }
 </style>

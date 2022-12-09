@@ -2,19 +2,19 @@
   <div class="home">
     <a
       id="downloadButton"
-      class="btn btn-info text-light"
+      class="btn btn-primary text-light"
       @click="downloadJson(posts, 'allPosts')"
     >
       Download as JSON
     </a>
     <div class="d-flex justify-content-around">
-      <button @click="showLatestFirst" class="btn btn-success m-2">
+      <button @click="showLatestFirst" class="btn btn-primary my-2">
         New posts first
       </button>
-      <button @click="showRecentlyCommentedFirst" class="btn btn-success m-2">
+      <button @click="showRecentlyCommentedFirst" class="btn btn-primary my-2">
         Latest comments first
       </button>
-      <button @click="showMostCommented" class="btn btn-success m-2">
+      <button @click="showMostCommented" class="btn btn-primary my-2">
         Most commented first
       </button>
     </div>

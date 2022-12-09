@@ -1,8 +1,10 @@
 <template>
-  <div class="card m-2 p-2">
-    <h1>{{ post.title }}</h1>
-    <h6>{{ post.date }}</h6>
-    <p>{{ post.description }}</p>
+  <div class="card p-2">
+    <div class="card-header">
+      <h1 class="text-primary display-3">{{ post.title }}</h1>
+      <h6 class="text-secondary">{{ post.date }}</h6>
+    </div>
+    <p class="card-body">{{ post.description }}</p>
   </div>
 </template>
 
