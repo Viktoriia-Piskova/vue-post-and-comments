@@ -2,7 +2,6 @@
   <div class="home">
     <NotFound v-if="post == false" />
     <PostLayout v-if="post" :post="post" />
-    <h4 v-if="comments == false && post">No comments yet</h4>
     <CommentsList v-if="post" :comments="comments" :id="id" />
   </div>
 </template>

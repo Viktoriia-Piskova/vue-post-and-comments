@@ -83,3 +83,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+#downloadButton {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+}
+</style>

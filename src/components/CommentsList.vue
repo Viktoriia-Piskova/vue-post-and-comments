@@ -1,6 +1,7 @@
 <template>
   <div class="container bg-light py-3">
-    <h6 class="fst-italic">Comments:</h6>
+    <h6 v-if="comments == false" class="fst-italic">No comments yet</h6>
+    <h6 v-if="comments.length >= 1" class="fst-italic">Comments:</h6>
     <CommentCard
       v-for="comment in comments"
       :key="comment.id"

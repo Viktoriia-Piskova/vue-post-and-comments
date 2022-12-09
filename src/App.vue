@@ -1,30 +1,17 @@
 <template>
-  <nav>
-    <router-link to="/">All posts</router-link> |
-    <router-link to="/create">Create new</router-link>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark mb-3">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <router-link class="nav-link" :active="$route.name == 'home'" to="/"
+          >All posts</router-link
+        >
+      </li>
+      <li class="nav-item">
+        <router-link class="nav-link" to="/create">Create new</router-link>
+      </li>
+    </ul>
   </nav>
   <router-view class="container" />
 </template>
 
-<style>
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-} */
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<style></style>
