@@ -55,7 +55,6 @@ export default {
       const lastPost = pageNum * 3;
       this.postsToDisplay = this.posts.slice(startPost, lastPost);
       this.currentPage = pageNum;
-      console.log(this.postsToDisplay);
     },
     showLatestFirst() {
       this.$store.dispatch("showLatestFirst");
